@@ -1,3 +1,4 @@
+#!/Library/Frameworks/Python.framework/Versions/3.9/bin/python3
 import time, minimax, expectimax, board, random, bitboard, itertools, \
        heuristics, timeit, functools, client, sys
 from collections import Counter
@@ -79,9 +80,29 @@ def time_runs(mode, run_count, imp, depth):
 
   return res
 
+valid_modes = ["minimax_random", "minimax_antagonistic", "expectimax",
+               "random"]
+valid_imps  = ["board", "bitboard"]
+imp_map = {
+  "board": board,
+  "bitboard": bitboard
+}
 if __name__ == "__main__":
   if len(sys.argv) != 5:
     print("Usage: timing.py [mode] [run_count] [implementation] [depth]")
   else:
-    imp = (board if sys.argv[3] == "board" else bitboard)
-    time_runs(sys.argv[1], int(sys.argv[2]), imp, int(sys.argv[4]))
+    mode = sys.argv[1]
+    imp = sys.argv[3]
+    if mode not in valid_modes:
+      print("Invalid mode: " + mode)
+      print("Valid modes:")
+      for m in valid_modes:
+          print("  * " + m)
+      sys.exit()
+    if imp not in valid_imps:
+      print("Invalid implementation: " + imp)
+      print("Valid implementations:")
+      for i in valid_imps:
+        print("  * " + i)
+      sys.exit()
+    time_runs(mode, int(sys.argv[2]), imp_map[imp], int(sys.argv[4]))

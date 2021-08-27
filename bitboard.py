@@ -45,6 +45,7 @@ def row_to_bits(row):
 Create move tables
 """
 def init_moves():
+  print("Generating bitboard move tables...")
   for vector in itertools.product(range(16), repeat = 4):
     # convert the vector into the corresponding 2 bytes representing that row
     row = 0
@@ -74,6 +75,7 @@ def init_moves():
 #   idx 5: weight for empty tiles
 #   idx 6: loss penalty
 def init_heuristics(weights = heuristic_weights):
+  print("Generating bitboard heuristics...")
   supower, suweight, mpower, mweight, sweight, eweight, loss_penalty = weights
   for vector in itertools.product(range(16), repeat = 4):
 

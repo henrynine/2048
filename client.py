@@ -1,3 +1,4 @@
+#!/Library/Frameworks/Python.framework/Versions/3.9/bin/python3
 import bitboard, getch, os, minimax, expectimax, sys, random, board
 
 directions = {
