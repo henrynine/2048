@@ -1,7 +1,5 @@
 import board, getch, os, math, copy, numpy, heuristics, bitboard
-from functools import lru_cache
 
-@lru_cache(maxsize = 1000000)
 def maximize(state, d, alpha, beta, imp):
     # print("max at depth " + str(d))
     bestChild = None
@@ -32,7 +30,6 @@ def maximize(state, d, alpha, beta, imp):
 
     return (bestChild, maxValue, minbest)
 
-@lru_cache(maxsize = 1000000)
 def minimize(state, d, alpha, beta, imp):
     # print("min at depth " + str(d))
     bestChild = None

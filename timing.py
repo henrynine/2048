@@ -56,11 +56,12 @@ def time_runs(mode, run_count, imp, depth):
 
   res = []
   start = time.time()
+  print("Beginning timing...")
   for n in range(run_count):
     main, moves, t, m = client.run_iteration(mode, imp, depth, prints = False)
     end = time.time() - start
     res.append([moves, t, end, imp.max_tile(main)])
-    print("Iteration ", str(n+1), " complete...")
+    print("Iteration", str(n+1), "complete...")
     start = time.time()
 
   maxes = [x[3] for x in res]
@@ -68,7 +69,7 @@ def time_runs(mode, run_count, imp, depth):
   total_score = sum([x[1] for x in res])
   total_moves = sum([x[0] for x in res])
 
-  print("Ran ", str(run_count), " ", mode, " games in ", round(total_time, 2), " seconds.")
+  print("Ran", str(run_count), mode, "games in", round(total_time, 2), "seconds.")
   print("Average moves/sec: ", round(total_moves/total_time, 2))
   print("Average final score: ", round(total_score/run_count, 2))
   print("Max final tile distribution:")

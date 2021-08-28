@@ -1,5 +1,6 @@
 #!/Library/Frameworks/Python.framework/Versions/3.9/bin/python3
 import bitboard, getch, os, minimax, expectimax, sys, random, board
+from functools import lru_cache
 
 directions = {
   'w': "U",
@@ -15,6 +16,12 @@ def run_iteration(mode, imp, depth, prints = True, debug = False):
   for n in range(2): main = imp.spawn_tile(main)
 
   move_count = 0
+
+  if imp == bitboard:
+      dec = lru_cache(maxsize = 1000000)
+      minimax.maximize = dec(minimax.maximize)
+      minimax.minimize = dec(minimax.minimize)
+      expectimax.expectimax = dec(expectimax.expectimax)
 
   try:
     while not imp.game_over(main):

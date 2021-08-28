@@ -1,5 +1,4 @@
 import board, heuristics, operator, getch, os, bitboard, time, sys
-from functools import lru_cache
 from collections import Counter
 
 """
@@ -7,7 +6,6 @@ Give the expected value of state, running the algorithm down to the given
 depth. Also return the move direction that produces the best value
 """
 # imp is the implementation to run with – bitboard or board
-@lru_cache(maxsize=1000000)
 def expectimax(state, depth, imp):
   if imp.game_over(state):
     # return 0 - non-game over states are boosted by the loss penalty
