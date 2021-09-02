@@ -58,10 +58,11 @@ def time_runs(mode, run_count, imp, depth):
   start = time.time()
   print("Beginning timing...")
   for n in range(run_count):
+    print(f"Beginning iteration {n+1}...")
     main, moves, t, m = client.run_iteration(mode, imp, depth, prints = False)
     end = time.time() - start
     res.append([moves, t, end, imp.max_tile(main)])
-    print("Iteration", str(n+1), "complete...")
+    print(f"Iteration {n+1} completed in {round(end, 2)} seconds...")
     start = time.time()
 
   maxes = [x[3] for x in res]

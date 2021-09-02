@@ -31,7 +31,7 @@ def run_iteration(mode, imp, depth, prints = True, debug = False):
         print(imp.string_of_board(main))
         print("Score: " + str(total_score))
         if debug:
-          print("Board heuristic score: ", str(imp.heuristic_value(main)))
+          print(f"Board heuristic score: {imp.heuristic_value(main)}")
 
       if mode == "minimax_random" or mode == "minimax_antagonistic":
         (move, _, min_input) = minimax.maximize(main, depth, -float("-inf"), float("inf"), imp)
