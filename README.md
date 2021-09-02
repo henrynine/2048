@@ -1,6 +1,6 @@
 # 2048 AI
 
-We built an implementation of 2048 and used expectimax and minimax to try to maximize the game score. An in-depth description of our approach and results can be found in details.pdf.
+We built an implementation of 2048 and used expectimax and minimax to try to maximize the game score. An in-depth description of our approach and results can be found in [details.pdf](https://github.com/henrynine/2048/blob/main/details.pdf).
 
 Created by [Henry Middleton](github.com/henrynine) and [CJ Schmidt](github.com/conzwrath).
 
